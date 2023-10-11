@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Landing Page</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo"><img src="assets/logo.png"></a>
+        <ul class="navigation">
+            <li><a href="#">Eu</a></li>
+            <li><a href="#">Amo</a></li>
+            <li><a href="#">Muito</a></li>
+            <li><a href="#">Minha</a></li>
+            <li><a href="#">Namorada</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
+    </header>
+
+    <div class="banner">
+        <img src="imagens/3h.png" class="bg">
+
+        <div class="content">
+            <img src="imagens/titulo.png" class="movieTitle">
+            <h4>
+                <span>2022</span>
+                <span><i>12+</i></span>
+                <span>Vida toda</span>
+                <span>Amor</span>
+            </h4>
+            <p>
+                A história emocionante de amor quando duas meninas ao serem apresentadas por amigos se apaixonam de uma forma inesquecível. Será que elas conseguem enfrentar desafios e permanecerem juntas?
+            </p>
+
+            <div class="buttons">
+                <a href="#" onclick="toggleVideo()"><i class="fa fa-play" aria-hidden="true"></i> Assistir</a>
+                <a id="minhaListaButton" href="#"><i class="fa fa-plus" aria-hidden="true"></i> Minha lista</a>
+            </div>
+        </div>
+        <a class="play" onclick="toggleVideo()"><img src="assets/play.png">Veja o Trailer</a>
+    </div>
+
+    <div class="trailer">
+        <video src="imagens/video.mp4" controls="true"></video>
+        <img src="assets/close.png" class="close" onclick="toggleVideo()">
+    </div>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="src/script.js"></script>
+    <script>
+        function toggleVideo() {
+            var trailer = document.querySelector('.trailer');
+            trailer.classList.toggle('active');
+            var video = document.querySelector('video');
+            video.currentTime = 0;
+            video.pause();
+        }
+
+        document.getElementById("minhaListaButton").addEventListener("click", function() {
+            var button = this;
+        
+            // Alterar o texto para "No seu coração"
+            button.innerHTML = '<i class="fa fa-plus" aria-hidden="true"></i> No seu coração';
+        
+            // Definir o fundo como vermelho
+            button.style.backgroundColor = "red";
+        });
+    </script>
+</body>
+</html>
